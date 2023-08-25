@@ -1,8 +1,8 @@
 const App = () => {
   return (
-    <div className = "font-bold text-9xl">
-      App
-    </div>
+    <Provider store = { store }>
+      <RouterProvider router = { router } />
+    </Provider>
   )
 }
 
