@@ -1,0 +1,1 @@
+export const BASE_URL = "https://highdef-api.vercel.app/api/v1";
