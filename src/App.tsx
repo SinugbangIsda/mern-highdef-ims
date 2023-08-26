@@ -10,6 +10,7 @@ import AuthGuard from "./components/auth";
 import Users from "./pages/users";
 import ThemeProvider from "./components/theme/provider";
 import { ToastContainer } from "react-toast";
+import Transactions from "./pages/transactions";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Dashboard />
+      },
+      {
+        path: "/transactions",
+        element: <Transactions />
       },
       {
         path: "/users",
