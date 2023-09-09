@@ -1,29 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface User {
-    id: string | null;
-    firstname: string | null;
-    lastname: string | null;
-    role: string | null
-};
-
-interface AuthState  {
-    token: string | null;
-    user: User | null;
-};
+import { AuthState } from "../../interfaces";
 
 const initialState: AuthState = {
     token: null,
     user: null
 };
 
-export const getUserData = () => {
+const getUserData = () => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
-    
+    const stringifiedToken = JSON.parse(JSON.stringify(token));
+    const stringifiedUser = JSON.parse(JSON.stringify(user));
+
     if (token && user) {
-        return { token, user };
-    };
+        return { 
+            token: stringifiedToken, 
+            user: stringifiedUser
+        };
+    } else {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    }
     
     return initialState;
 };
@@ -34,12 +31,17 @@ const authSlice = createSlice({
     reducers: {
         setAuth(state, action) {
             const { user, token } = action.payload;
-            localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("user", JSON.stringify(user));
-            return { ...state, user, token };
+            const stringifiedUser = JSON.stringify(user);
+            const stringifiedToken = JSON.stringify(token);
+            localStorage.setItem("token", stringifiedToken);
+            localStorage.setItem("user", stringifiedUser);
+            return { ...state,
+                user: stringifiedUser,
+                token:  stringifiedToken
+            };
         },
         logOut: () => {
-            localStorage.removeItem("token"),
+            localStorage.removeItem("token");
             localStorage.removeItem("user");
             return initialState;
         },
