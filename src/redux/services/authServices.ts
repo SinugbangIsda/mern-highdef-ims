@@ -4,7 +4,7 @@ import { BASE_URL } from "../../constants";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL
+    baseUrl: BASE_URL.api
   }),
   endpoints: (builder) => ({
     signin: builder.mutation({
