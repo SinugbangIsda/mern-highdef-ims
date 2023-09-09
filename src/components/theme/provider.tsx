@@ -1,6 +1,6 @@
-import React, { ReactNode, useEffect, useCallback } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { toggleTheme } from '../../redux/slices/themeSlice';
+import { setTheme } from '../../redux/slices/themeSlice';
 
 interface ProviderProps {
     children: ReactNode;
@@ -9,16 +9,27 @@ interface ProviderProps {
 const ThemeProvider = ({ children }: ProviderProps) => {
     const theme = useAppSelector((state) => state.theme);
     const dispatch = useAppDispatch();
+    const root = window.document.documentElement;
+    
+    const fetchTheme = () => {
+        if (!theme) {
+            dispatch(setTheme("dark"));
+        }
+    };
 
-    const fetchTheme = useCallback(() => {
-        dispatch(toggleTheme());
-        const root = window.document.documentElement;
-        root.classList.toggle('dark', theme === 'dark');
-      }, [ dispatch, theme ]);
+    const toggleTheme = () => {
+        if (theme === "dark") {
+            root.classList.toggle("dark", true);
+        } else {
+            root.classList.remove("dark");
+        }
+    };
 
-    useEffect(()=> {
+
+    useEffect(() => {
         fetchTheme();
-    }, [ fetchTheme ]);
+        toggleTheme();
+    }, [  fetchTheme, toggleTheme ]);
 
     return (
         <>
