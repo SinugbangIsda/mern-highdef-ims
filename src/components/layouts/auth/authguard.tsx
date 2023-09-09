@@ -4,7 +4,6 @@ import jwtDecode from  "jwt-decode";
 import { logOut } from "../../../redux/slices/authSlice";
 import { useAppSelector } from "../../../redux/hooks";
 import { useToast } from "../../../hooks/useToast";
-import { User } from "../../../interfaces";
 
 const AuthGuard = () => {
   const user = useAppSelector((state) => state.auth.user);
