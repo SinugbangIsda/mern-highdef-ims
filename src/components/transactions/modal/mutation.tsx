@@ -55,6 +55,7 @@ const TransactionsMutationModal = ({
         const updatedProducts = [...(formValues.products || [])];
         updatedProducts.splice(index, 1);
         setFormValues({ ...formValues, products: updatedProducts });
+        showSuccess("Product removed.");
     };
 
     const handleAddTransaction = async () => {
