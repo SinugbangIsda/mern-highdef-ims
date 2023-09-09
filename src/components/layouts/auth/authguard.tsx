@@ -16,7 +16,7 @@ const AuthGuard = () => {
   const { showWarning } = useToast();
 
   const isValidToken = (): boolean => {
-    if (!token || !user || !is_activated) {
+    if (!token || (!user || !is_activated)) {
       showWarning("Session token is invalid or your account is not activated.");
       dispatch(logOut());
       return false;
