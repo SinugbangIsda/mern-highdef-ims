@@ -165,12 +165,11 @@ const TransactionsMutationModal = ({
                     <CalendarInput
                         value = { formValues.payment_date! }
                         onChange = {(date: Date) => {
-                            const currentDate = new Date();
                             const newDate = new Date(date);
 
-                            newDate.setHours(currentDate.getHours());
-                            newDate.setMinutes(currentDate.getMinutes());
-                            newDate.setSeconds(currentDate.getSeconds());
+                            newDate.setHours(12);
+                            newDate.setMinutes(0);
+                            newDate.setSeconds(0);
                         
                             setFormValues({
                               ...formValues,
