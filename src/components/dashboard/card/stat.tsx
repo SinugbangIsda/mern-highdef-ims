@@ -18,7 +18,7 @@ const DashboardStastisticCard = ({
                     { label } Sales
                 </span>
                 <span className = "stat-value text-[#2C2E39] dark:text-white text-2xl">
-                    PHP { value }
+                    { value }
                 </span>
             </div>
         </div>
