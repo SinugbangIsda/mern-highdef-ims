@@ -1,15 +1,50 @@
-import { toast } from "react-toast";
+import { toast } from "react-hot-toast";
 
 export const useToast = () => {
-    const showSuccess = (value: string) => toast.success(value); 
-    const showError = (value: string ) => toast.error(value); 
-    const showInfo = (value: string) => toast.info(value); 
-    const showWarning = (value: string) => toast.warn(value);
+    const showSuccess = (value: string) => {
+        toast(value, {
+            duration: 4000,
+            style: {
+                backgroundColor: "#3AB35B",
+                color: "white"
+            }
+        });
+    };
+    
+    const showError = (value: string) => {
+        toast(value, {
+            duration: 4000,
+            style: {
+                backgroundColor: "#F44544",
+                color: "white"
+            }
+        });
+    };
 
-    return { 
+    const showInfo = (value: string) => {
+        toast(value, {
+            duration: 4000,
+            style: {
+                backgroundColor: "#3887FE",
+                color: "white"
+            }
+        });
+    };
+    
+    const showWarning = (value: string) => {
+        toast(value, {
+            duration: 4000,
+            style: {
+                backgroundColor: "#FFAC2F",
+                color: "white"
+            }
+        });
+    };
+
+    return {
         showSuccess,
         showError,
         showInfo,
         showWarning
-    } as const;
+    };
 };
