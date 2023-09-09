@@ -9,18 +9,12 @@ import { User } from "../../../interfaces";
 const AuthGuard = () => {
   const user = useAppSelector((state) => state.auth.user);
   const token = useAppSelector((state) => state.auth.token);
-  const userData: User = JSON.parse(user);
-  const { is_activated } = userData;
   const dispatch = useDispatch();
   const location = useLocation();
   const { showWarning } = useToast();
 
   const isValidToken = (): boolean => {
-    if (!token || (!user || !is_activated)) {
-      showWarning("Session token is invalid or your account is not activated.");
-      dispatch(logOut());
-      return false;
-    }
+    if (!token && !user) return false;
 
     const expiry = (jwtDecode(token!) as any)?.exp;
 
@@ -32,7 +26,7 @@ const AuthGuard = () => {
 
     return true;
   };
-  
+
   return (
     user && token && isValidToken() ? (
       <Outlet />
