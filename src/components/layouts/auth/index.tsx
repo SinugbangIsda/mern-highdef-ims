@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import Logo from "../../../assets/images/hd-lgo.svg";
 
 interface AuthRouteLayoutProps {
