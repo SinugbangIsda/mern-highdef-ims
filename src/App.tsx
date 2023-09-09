@@ -6,11 +6,13 @@ import ForgotPassword from "./pages/forgotpassword";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Dashboard from "./pages/dashboard";
-import AuthGuard from "./components/auth";
+import AuthGuard from "./components/layouts/auth/authguard";
 import Users from "./pages/users";
-import ThemeProvider from "./components/theme/provider";
-import { ToastContainer } from "react-toast";
 import Transactions from "./pages/transactions";
+import ThemeProvider from "./components/theme/provider";
+import SelectedTransaction from "./components/transactions/selected";
+import { Toaster } from "react-hot-toast";
+import AdminRoute from "./components/layouts/privateroute/adminroute";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +24,28 @@ const router = createBrowserRouter([
         element: <Dashboard />
       },
       {
-        path: "/transactions",
-        element: <Transactions />
+        path: "transactions",
+        children: [
+          {
+            path: "",
+            element: <Transactions />
+          },
+          {
+            path: ":transactionId",
+            element:  <SelectedTransaction />
+          },
+        ]
       },
       {
-        path: "/users",
-        element: <Users />
-      },
+        path: "users",
+        element: <AdminRoute />,
+        children: [
+          {
+            path: "",
+            element: <Users />
+          }
+        ]
+      }
     ]
   },
   {
@@ -54,7 +71,11 @@ const App = () => {
     <Provider store = { store }>
       <ThemeProvider>
         <RouterProvider router = { router } />
-        <ToastContainer delay = { 5000 }/>
+        <Toaster 
+          position = "bottom-center"
+          gutter = { 8 }
+          containerClassName = "select-none"
+        />
       </ThemeProvider>
     </Provider>
   )
