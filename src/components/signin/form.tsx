@@ -48,7 +48,7 @@ const SigninForm = () => {
             onSubmit = {(e) => handleSubmit(e) }
             className = "space-y-4"
         >
-            <h2 className = "font-semibold text-2xl text-center">
+            <h2 className = "font-semibold text-2xl text-center text-[#2C2E39] dark:text-white">
                 Signin to your account
             </h2>
             <FormInput 
@@ -85,12 +85,12 @@ const SigninForm = () => {
                         type = "checkbox" 
                         className = "checkbox" 
                     />
-                    <span>
+                    <span className = "text-[#A2ABAE] dark:text-[#8792A6]">
                         Remember me
                     </span>
                 </div>
                 <span
-                    className = "text-right cursor-pointer hover:text-[#3E78BC]"
+                    className = "text-right cursor-pointer text-[#A2ABAE] dark:text-[#8792A6] hover:text-[#3E78BC]"
                     onClick = {() => navigate("/forgotpassword")}
                 >
                     Forgot Password?
@@ -104,7 +104,7 @@ const SigninForm = () => {
                 disabled = { isLoading }
             />
             <div className = "text-center">
-                <span>
+                <span  className = "text-[#A2ABAE] dark:text-[#8792A6]">
                     Don't have an account yet? <span className = "hover:text-[#3E78BC] cursor-pointer" onClick = {() => navigate("/signup")}>Sign up</span>
                 </span>
             </div>
