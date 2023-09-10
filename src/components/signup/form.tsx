@@ -48,7 +48,7 @@ const SignupForm = () => {
             onSubmit = {(e) => handleSubmit(e) }
             className = "space-y-4"
         >
-            <h2 className = "font-semibold text-2xl text-center">
+            <h2 className = "font-semibold text-2xl text-center text-[#2C2E39] dark:text-white">
                 Create an account
             </h2>
             <div className = "flex flex-col sm:flex-row gap-4 w-full">
@@ -131,7 +131,7 @@ const SignupForm = () => {
                 disabled = { isLoading }
             />
             <div className = "text-center">
-                <span>
+                <span className = "text-[#A2ABAE] dark:text-[#8792A6]">
                     Already have an account? <span className = "hover:text-[#3E78BC] cursor-pointer" onClick = {() => navigate("/signin")}>Sign in</span>
                 </span>
             </div>
