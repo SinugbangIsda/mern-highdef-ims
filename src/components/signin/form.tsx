@@ -31,7 +31,7 @@ const SigninForm = () => {
             const token = userData.token;
             const user = userData.user;
             if (token && user) {
-                localStorage.setItem("token", JSON.stringify(token));
+                localStorage.setItem("token", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 showSuccess("Sign in successful!");
                 dispatch(setAuth(userData));
