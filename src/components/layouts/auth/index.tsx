@@ -17,7 +17,7 @@ const AuthRouteLayout = ({ children }: AuthRouteLayoutProps) => {
                 alt = "Company Logo"
               />
               <h1 className = "font-bold text-[#3E78BC] text-3xl">
-                HighDef Hauling IMS
+                HighDef
               </h1>
             </div>
             { children }
