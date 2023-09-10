@@ -9,7 +9,7 @@ export const usersApi = createApi({
         const token = localStorage.getItem("token");
 
         if (token) {
-            headers.set("Authorization", JSON.parse(token));
+            headers.set("Authorization", token);
         };
         
         return headers;

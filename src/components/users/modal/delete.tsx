@@ -35,7 +35,7 @@ const UsersDeleteModal = ({
         <div className = "h-full w-full flex flex-col justify-between space-y-10">
             <div className = "">
                 <span>
-                    Are you fucking sure?
+                    Are you sure you want to delete this transaction? Action cannot be undone.
                 </span>
             </div>
             <div className = "flex flex-row justify-end items-center gap-2">

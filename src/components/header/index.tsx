@@ -1,4 +1,5 @@
 import { HeaderProps } from "../../interfaces";
+import BurgerMenu from "./burger";
 import ProfileButton from "./profile";
 import HeaderThemeToggle from "./themetoggle";
 
@@ -14,6 +15,7 @@ const Header = ({
       <div className = "flex flex-row justify-end items-center w-full space-x-2">
         <HeaderThemeToggle />
         <ProfileButton />
+        <BurgerMenu />
       </div>
     </div>
   )

@@ -32,12 +32,11 @@ const authSlice = createSlice({
         setAuth(state, action) {
             const { user, token } = action.payload;
             const stringifiedUser = JSON.stringify(user);
-            const stringifiedToken = JSON.stringify(token);
-            localStorage.setItem("token", stringifiedToken);
+            localStorage.setItem("token", token);
             localStorage.setItem("user", stringifiedUser);
             return { ...state,
                 user: stringifiedUser,
-                token:  stringifiedToken
+                token:  token
             };
         },
         logOut: () => {
