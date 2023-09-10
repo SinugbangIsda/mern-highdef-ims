@@ -28,7 +28,7 @@ const ForgotPasswordForm = () => {
             onSubmit = {(e) => handleSubmit(e) }
             className = "space-y-4" 
         >
-            <h2 className = "font-bold text-2xl text-center">
+            <h2 className = "font-bold text-2xl text-center text-[#2C2E39] dark:text-white">
                 Forgot your password
             </h2>
             <FormInput 
